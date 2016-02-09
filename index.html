@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="utf-8">
+	    <title>Setting up your site with users in mind</title>
+
+	    <!-- CSS -->
+	    <link href="css/normalize.css" rel="stylesheet" type="text/css">
+	    <link href="css/style.css" rel="stylesheet" type="text/css">
+
+	</head>
+
+	<body>
+		<div class="slides">
+		    <div class="slide">
+		    </div>
+		</div>
+	</body>
+
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script>
+		$( document ).ready( function(){
+			var i = 1;
+			showSlide();
+
+			$( '.slides' ).on( 'click', '.slide', function() {
+			    i++;
+			    showSlide();
+			} );
+
+			function showSlide() {
+			    var num = i;
+			    if ( i < 10 ) {
+			        num = '0' + num;
+			    }
+			    $( '.slide' ).html( '<img src="img/setting-up-site-' + num + '.png" />' );
+			}
+
+			$( document ).keydown( function( event ) {
+			    if ( 39 === event.which ) {
+			        i++;
+			    } else if ( 37 === event.which ) {
+			        i--;
+			    } else {
+			        return;
+			    }
+
+			    showSlide();
+			} );
+		});
+	</script>
+</html>
